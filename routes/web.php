@@ -17,4 +17,6 @@ Route::get('/', 'PostControlador@index');
 
 Route::post('/', 'PostControlador@store');
 
+Route::delete('/{id}', 'PostControlador@destroy');
+
 

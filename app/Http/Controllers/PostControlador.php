@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostControlador extends Controller
 {
@@ -86,6 +87,12 @@ class PostControlador extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        if(isset($post)) {
+            $arquivo = $post->arquivo;
+            Storage::disk('public')->delete($arquivo);
+            $post->delete();
+        }
+        return redirect('/');
     }
 }
