@@ -39,3 +39,11 @@ Chamando todos registros
 ```
 $posts = App\Post::all()
 ```
+
+# Pegando caminho absoluto
+
+Pegando caminho absoluto para fazer download
+
+```
+$path = Storage::disk('public')->getDriver()->getAdapter()->applyPathPrefix($post->arquivo);
+```
